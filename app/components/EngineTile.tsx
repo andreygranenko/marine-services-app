@@ -11,19 +11,13 @@ interface EngineDimensions {
 interface EngineData {
     id: string
     name: string
-    type: "electric" | "gasoline"
-    mounting_type: "wall-mounted" | "built-in"
+    type: "Electric" | "Combustion" | "Hybrid"
+    mounting_type: "Inboard" | "Outboard"
     category: string
     price: number
     power: number
-    torque: number
-    voltage?: number
-    fuel_capacity?: number
     weight: number
-    dimensions: EngineDimensions
-    efficiency_rating: number
-    cooling_system: string
-    noise_level: number
+
 }
 
 interface EngineTileProps {

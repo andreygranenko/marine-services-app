@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation"
 import Image from "next/image"
 import {getEngines} from "@/lib/utils";
-import EngineContactForm from "@/components/EngineContactForm";
+import EngineContactForm from "@/app/components/EngineContactForm";
 
 export default async function EnginePage({ params }: { params: { slug: string } }) {
 

@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import emailjs from "@emailjs/browser";
 
 interface EngineContactFormProps {
     engineName: string
@@ -20,13 +21,35 @@ export default function EngineContactForm({ engineName }: EngineContactFormProps
         setFormData((prev) => ({ ...prev, [name]: value }))
     }
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
-        console.log("Form submitted:", formData)
-        // Here you would typically send this data to your backend
-        alert("Thank you for your interest. We will contact you soon!")
-        setShowForm(false)
-        setFormData({ name: "", email: "", phone: "", message: "" })
+
+        const serviceId = "service_dgfekup";
+        const templateId = "contact_me";
+        const publicKey = process.env.NEXT_PUBLIC_EMAILJS_KEY;
+
+        const templateParams = {
+            engine: engineName,
+            name: formData.name,
+            email: formData.email,
+            phone: formData.phone,
+            message: formData.message,
+            date: new Date().toDateString(),
+            service: "Engine Transaction"
+        }
+
+        emailjs.send(serviceId, templateId, templateParams, publicKey)
+            .then(() => {
+                alert("Thank you for your interest! We will contact you soon.")
+                setShowForm(false)
+                setFormData({ name: "", email: "", phone: "", message: "" })
+            })
+            .catch((error) => {
+                console.error("Email sending failed:", error)
+                alert("Something went wrong. Please try again later.")
+            })
+
+
     }
 
     return (

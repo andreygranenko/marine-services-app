@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@hookform/resolvers": "^3.9.1",
     "@prismicio/client": "latest",
     "@radix-ui/react-accordion": "^1.2.2",

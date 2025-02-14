@@ -2,22 +2,42 @@
 
 import { useState } from "react"
 import { Calendar } from "@/components/ui/calendar"
+import emailjs from "@emailjs/browser";
 
 export default function BookingPage() {
   const [date, setDate] = useState<Date | undefined>(new Date())
   const [service, setService] = useState("")
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
-
-  const handleSubmit = (e: React.FormEvent) => {
+  const [status, setStatus] = useState("");
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     // Handle booking submission (e.g., send data to an API)
-    console.log("Booking submitted:", { date, service, name, email })
-    // Reset form
-    setDate(new Date())
-    setService("")
-    setName("")
-    setEmail("")
+
+    const templateParams = {
+      name,
+      email,
+      service,
+      date: date?.toDateString() || "Not Selected",
+    };
+
+    try {
+      await emailjs.send(
+          "service_dgfekup",   // Replace with your EmailJS Service ID
+          "contact_me",  // Replace with your EmailJS Template ID
+          templateParams,
+          process.env.NEXT_PUBLIC_EMAILJS_KEY    // Replace with your EmailJS Public Key
+      );
+
+      setStatus("Booking confirmed! Email sent.");
+      setDate(new Date());
+      setService("");
+      setName("");
+      setEmail("");
+    } catch (error) {
+      console.error("Email sending failed:", error);
+      setStatus("Failed to send confirmation email.");
+    }
   }
 
   return (
@@ -36,14 +56,15 @@ export default function BookingPage() {
             className="w-full px-3 py-2 border rounded-md"
           >
             <option value="">Select a service</option>
-            <option value="repair">Engine Repair</option>
-            <option value="rental">Engine Rental</option>
+            <option value="engine-repair">Engine Repair</option>
+            <option value="boat-repair">Boat Repair</option>
             <option value="consultation">Consultation</option>
+            <option value="sell-engine">Sell engine</option>
           </select>
         </div>
-        <div className="mb-4">
+        <div className="mb-4 flex items-start flex-col">
           <label className="block mb-1 font-medium">Date</label>
-          <Calendar mode="single" selected={date} onSelect={setDate} className="rounded-md border" />
+          <Calendar mode="single" selected={date} onSelect={setDate} className="rounded-md border " />
         </div>
         <div className="mb-4">
           <label htmlFor="name" className="block mb-1 font-medium">
@@ -74,6 +95,7 @@ export default function BookingPage() {
         <button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
           Book Appointment
         </button>
+        {status && <p className="mt-4 text-center text-sm text-gray-600">{status}</p>}
       </form>
     </div>
   )

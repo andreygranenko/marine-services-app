@@ -1,4 +1,9 @@
+import {createClient} from "contentful";
 import EngineTile from "../components/EngineTile"
+import {getEngines} from "@/lib/utils";
+
+
+
 
 const engines = [
     {
@@ -83,13 +88,16 @@ const engines = [
     },
 ]
 
-export default function ShopPage() {
+export default async function ShopPage() {
+    const engines = await getEngines();
+
+    console.log(engines[0].fields.slug, 'engines');
     return (
         <div className="container mx-auto px-4 py-16">
             <h1 className="text-4xl font-bold mb-8 text-center">Shop</h1>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 {engines.map((engine) => (
-                    <EngineTile key={engine.id} engine={engine} />
+                    <EngineTile key={engine.fields.slug} engine={engine.fields} />
                 ))}
             </div>
         </div>

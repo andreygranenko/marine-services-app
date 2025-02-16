@@ -97,7 +97,7 @@ export default async function ShopPage() {
             <h1 className="text-4xl font-bold mb-8 text-center">Shop</h1>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 {engines.map((engine) => (
-                    <EngineTile key={engine.fields.slug} engine={engine.fields} />
+                    <EngineTile path={'/shop'} key={engine.fields.slug} engine={engine.fields} />
                 ))}
             </div>
         </div>

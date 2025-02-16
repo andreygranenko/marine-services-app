@@ -3,7 +3,7 @@ import Image from "next/image"
 import {getEngines} from "@/lib/utils";
 import EngineContactForm from "@/app/components/EngineContactForm";
 
-export default async function EnginePage({ params }: { params: { slug: string } }) {
+export default async function EnginePageForRent({ params }: { params: { slug: string } }) {
 
     const engines = await getEngines();
     const engine = engines.find((e) => e.fields.slug === params.slug);
@@ -58,7 +58,7 @@ export default async function EnginePage({ params }: { params: { slug: string } 
                             <p>{description}</p>
                         </div>
                     </div>
-                    <EngineContactForm engineName={name} rental={false}/>
+                    <EngineContactForm rental={true} engineName={name} />
                 </div>
             </div>
         </div>

@@ -2,24 +2,8 @@ import Link from "next/link"
 
 const services = [
   {
-    title: "Engine Sales",
-    description: "New and used engines for various boat types.",
-    subcategories: ["Inboard", "Outboard"],
-    link: "/shop"
-  },
-  {
-    title: "Engine Rentals",
-    description: "Short-term and long-term engine rental options.",
-    link: "/shop"
-  },
-  {
-    title: "Engine Repairs & Maintenance",
-    description: "Expert repair and maintenance services for all engine types.",
-    link: "/book"
-  },
-  {
-    title: "Engine Purchases",
-    description: "We buy used and new engines.",
+    title: "Boat Inspections",
+    description: "Our expert Boat Inspections ensure your vessel is safe, compliant, and in top condition.",
     link: "/book"
   },
   {

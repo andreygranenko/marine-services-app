@@ -22,9 +22,10 @@ interface EngineData {
 
 interface EngineTileProps {
     engine: EngineData
+    path: string
 }
 
-const EngineTile: React.FC<EngineTileProps> = ({ engine }) => {
+const EngineTile: React.FC<EngineTileProps> = ({ engine, path }) => {
     return (
         <div className="bg-white rounded-lg shadow-md p-6">
             <Image
@@ -44,7 +45,7 @@ const EngineTile: React.FC<EngineTileProps> = ({ engine }) => {
                 <p className="text-sm text-gray-600">Weight: {engine.weight} kg</p>
             </div>
             <Link
-                href={`/shop/${engine.slug}`}
+                href={`${path}/${engine.slug}`}
                 className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded block text-center"
             >
                 View Details

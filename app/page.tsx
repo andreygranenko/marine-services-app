@@ -4,19 +4,14 @@ import TestimonialsSection from "./components/TestimonialsSection"
 
 const featuredServices = [
   {
-    title: "Engine Sales",
-    description: "New and used engines for various boat types.",
+    title: "Boat Inspections",
+    description: "Our expert Boat Inspections ensure your vessel is safe, compliant, and in top condition.",
     slug: "engine-sales",
   },
   {
-    title: "Engine Repairs",
-    description: "Expert repair services for all engine types.",
+    title: "Boat Repairs",
+    description: "Full-scale repairs for various boat types.",
     slug: "engine-repairs",
-  },
-  {
-    title: "Maintenance",
-    description: "Regular maintenance to keep your engine running smoothly.",
-    slug: "maintenance",
   },
 ]
 
@@ -49,12 +44,12 @@ export default function Home() {
       <section className="py-16 bg-gray-100">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-8">Our Services</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {featuredServices.map((service, index) => (
               <div key={index} className="bg-white rounded-lg shadow-md p-6">
                 <h3 className="text-xl font-semibold mb-4">{service.title}</h3>
                 <p className="mb-4">{service.description}</p>
-                <Link href={`/services/${service.slug}`} className="text-blue-600 hover:text-blue-800">
+                <Link href={`/book`} className="text-blue-600 hover:text-blue-800">
                   Learn More &rarr;
                 </Link>
               </div>

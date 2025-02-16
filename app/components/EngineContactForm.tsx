@@ -5,9 +5,10 @@ import emailjs from "@emailjs/browser";
 
 interface EngineContactFormProps {
     engineName: string
+    rental: boolean
 }
 
-export default function EngineContactForm({ engineName }: EngineContactFormProps) {
+export default function EngineContactForm({ engineName , rental}: EngineContactFormProps) {
     const [showForm, setShowForm] = useState(false)
     const [formData, setFormData] = useState({
         name: "",
@@ -35,7 +36,8 @@ export default function EngineContactForm({ engineName }: EngineContactFormProps
             phone: formData.phone,
             message: formData.message,
             date: new Date().toDateString(),
-            service: "Engine Transaction"
+            service: "Engine Transaction",
+            transactionType: rental ? "Rental" : "Sale"
         }
 
         emailjs.send(serviceId, templateId, templateParams, publicKey)

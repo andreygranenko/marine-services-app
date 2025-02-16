@@ -9,7 +9,14 @@ export default function BookingPage() {
   const [service, setService] = useState("")
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
+  const [location, setLocation] = useState("");
+  const [boatType, setBoatType] = useState("");
+  const [dimensions, setDimensions] = useState("");
+  const [description, setDescription] = useState("");
+  const [engineMaker, setEngineMaker] = useState("");
+  const [engineModel, setEngineModel] = useState("");
   const [status, setStatus] = useState("");
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     // Handle booking submission (e.g., send data to an API)
@@ -19,6 +26,12 @@ export default function BookingPage() {
       email,
       service,
       date: date?.toDateString() || "Not Selected",
+      location,
+      boatType,
+      dimensions,
+      description,
+      engineMaker,
+      engineModel,
     };
 
     try {
@@ -56,8 +69,8 @@ export default function BookingPage() {
             className="w-full px-3 py-2 border rounded-md"
           >
             <option value="">Select a service</option>
-            <option value="engine-repair">Engine Repair</option>
             <option value="boat-repair">Boat Repair</option>
+            <option value="boat-inspection">Boat Inspection</option>
             <option value="consultation">Consultation</option>
             <option value="sell-engine">Sell engine</option>
           </select>
@@ -88,6 +101,118 @@ export default function BookingPage() {
             id="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            required
+            className="w-full px-3 py-2 border rounded-md"
+          />
+        </div>
+        <div className="mb-4">
+          <label htmlFor="location" className="block mb-1 font-medium">
+            Location
+          </label>
+          <input
+            type="text"
+            id="location"
+            value={location}
+            onChange={(e) => setLocation(e.target.value)}
+            required
+            className="w-full px-3 py-2 border rounded-md"
+          />
+        </div>
+        {(service === "boat-repair" || service === "boat-inspection") && (
+            <>
+              <div className="mb-4">
+                <label htmlFor="boatType" className="block mb-1 font-medium">
+                  Boat Type
+                </label>
+                <input
+                    type="text"
+                    id="boatType"
+                    value={boatType}
+                    onChange={(e) => setBoatType(e.target.value)}
+                    required
+                    className="w-full px-3 py-2 border rounded-md"
+                />
+              </div>
+              <div className="mb-4">
+                <label htmlFor="dimensions" className="block mb-1 font-medium">
+                  Dimensions
+                </label>
+                <input
+                    type="text"
+                    id="dimensions"
+                    value={dimensions}
+                    onChange={(e) => setDimensions(e.target.value)}
+                    required
+                    className="w-full px-3 py-2 border rounded-md"
+                />
+              </div>
+              <div className="mb-4">
+                <label htmlFor="engineMaker" className="block mb-1 font-medium">
+                  Engine Maker
+                </label>
+                <input
+                    type="text"
+                    id="engineMaker"
+                    value={engineMaker}
+                    onChange={(e) => setEngineMaker(e.target.value)}
+                    required
+                    className="w-full px-3 py-2 border rounded-md"
+                />
+              </div>
+              <div className="mb-4">
+                <label htmlFor="engineModel" className="block mb-1 font-medium">
+                  Engine Model
+                </label>
+                <input
+                    type="text"
+                    id="engineModel"
+                    value={engineModel}
+                    onChange={(e) => setEngineModel(e.target.value)}
+                    required
+                    className="w-full px-3 py-2 border rounded-md"
+                />
+              </div>
+            </>
+        )}
+        {service === "sell-engine" && (
+            <>
+              <div className="mb-4">
+                <label htmlFor="engineMaker" className="block mb-1 font-medium">
+                  Engine Maker
+                </label>
+                <input
+                    type="text"
+                    id="engineMaker"
+                    value={engineMaker}
+                    onChange={(e) => setEngineMaker(e.target.value)}
+                    required
+                    className="w-full px-3 py-2 border rounded-md"
+                />
+              </div>
+              <div className="mb-4">
+                <label htmlFor="engineModel" className="block mb-1 font-medium">
+                  Engine Model
+                </label>
+                <input
+                    type="text"
+                    id="engineModel"
+                    value={engineModel}
+                    onChange={(e) => setEngineModel(e.target.value)}
+                    required
+                    className="w-full px-3 py-2 border rounded-md"
+                />
+              </div>
+            </>
+
+        )}
+        <div className="mb-4">
+          <label htmlFor="description" className="block mb-1 font-medium">
+            Description
+          </label>
+          <textarea
+            id="description"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
             required
             className="w-full px-3 py-2 border rounded-md"
           />

@@ -11,7 +11,7 @@ const Header = () => {
     <header className="bg-blue-900 text-white">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <Link href="/" className="text-2xl font-bold">
-          Marine Engine Experts
+          AG Ship Services
         </Link>
         <nav className="hidden md:flex space-x-6">
           <Link href="/" className="hover:text-blue-300">
@@ -31,9 +31,6 @@ const Header = () => {
           </Link>
           <Link href="/contact" className="hover:text-blue-300">
             Contact
-          </Link>
-          <Link href="/admin" className="hover:text-blue-300">
-            Admin
           </Link>
         </nav>
         <button className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>

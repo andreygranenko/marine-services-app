@@ -36,9 +36,9 @@ const Footer = () => {
           </div>
           <div>
             <h4 className="text-lg font-semibold mb-4">Contact Us</h4>
-            <p>123 Marina Way, Seaside, CA 12345</p>
-            <p>Phone: (555) 123-4567</p>
-            <p>Email: info@marineengineexperts.com</p>
+            <p>Uithoorn, Netherlands</p>
+            <p>Phone: +31 6 47724278</p>
+            <p>Email: granenko@inbox.lv</p>
           </div>
         </div>
         <div className="mt-8 text-center">

@@ -77,18 +77,11 @@ export default function ContactPage() {
         </div>
         <div>
           <h2 className="text-2xl font-semibold mb-4">Our Location</h2>
-          <p className="mb-4">123 Marina Way, Seaside, CA 12345</p>
-          <p className="mb-4">Phone: (555) 123-4567</p>
-          <p className="mb-4">Email: info@marineengineexperts.com</p>
+          <p className="mb-4">Uithoorn, Netherlands</p>
+          <p className="mb-4">Phone: +31 6 47724278</p>
+          <p className="mb-4">Email: granenko@inbox.lv</p>
           <div className="aspect-w-16 aspect-h-9">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3203.0454526882384!2d-121.89121068472996!3d36.60017798005405!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808de45270b5fb91%3A0xee484909d84a3d5e!2sMonterey%20Bay!5e0!3m2!1sen!2sus!4v1623338100000!5m2!1sen!2sus"
-              width="600"
-              height="450"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-            ></iframe>
+            <div style={{"width": "100%"}}><iframe suppressHydrationWarning width="100%" height="600" frameBorder="0" scrolling="no" marginHeight="0" marginWidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Uithoorn,%20Netherlands+(Uithoorn)&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.gps.ie/">gps drone</a></iframe></div>
           </div>
         </div>
       </div>

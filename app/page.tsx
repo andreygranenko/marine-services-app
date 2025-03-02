@@ -26,10 +26,10 @@ export default function Home() {
   return (
     <div>
       <section className="relative h-[600px]">
-        <Image src="https://cdn.denisonyachtsales.com/wp-content/uploads/2022/05/denison_yachting_homepage_hero.webp" alt="Boats and engines" fill className="object-cover" />
+        <Image src="https://easternboats.com/wp-content/uploads/slider/cache/4a6fe09202d069cc4e27b2677585854f/EasternBoats_22CC_Slide1a.jpg" alt="Boats and engines" fill className="object-cover" />
         <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
           <div className="text-center text-white">
-            <h1 className="text-4xl md:text-6xl font-bold mb-4">Marine Engine Experts</h1>
+            <h1 className="text-4xl md:text-6xl font-bold mb-4">AG Ship Services</h1>
             <p className="text-xl md:text-2xl mb-8">Your trusted partner for boat engine services</p>
             <Link
               href="/services"
